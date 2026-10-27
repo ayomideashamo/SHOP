@@ -1,0 +1,23 @@
+{
+  "name": "the-counter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The Counter — shop owner / customer counter app (static frontend, localStorage-backed prototype)",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "live-server --port=5500 --no-browser .",
+    "test": "node --test",
+    "test:watch": "node --test --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "eslint": "^9.9.0",
+    "prettier": "^3.3.3"
+  }
+}

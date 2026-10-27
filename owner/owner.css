@@ -1,0 +1,415 @@
+:root{
+    --counter:#1F2A24; 
+    --counter-2:#243630;
+    --paper:#FBF8F1; 
+    --paper-2:#F3EEE2; 
+    --ink:#2B2A28;
+    --brass:#B79C6C; 
+    --stamp:#C0463A; 
+    --mint:#6FA287;
+}
+  *{box-sizing:border-box;}
+body{
+    margin:0;
+    background:var(--counter);
+    background-image:radial-gradient(circle at 20% 10%, var(--counter-2), var(--counter) 60%);
+    color:var(--paper-2);
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+}
+
+#app{
+    max-width:1100px;
+    margin:0 auto;
+    padding:20px 16px 60px;
+}
+
+.display{
+    font-family:'Special Elite',monospace;
+}
+
+.ledger-num{
+    font-family:'Courier Prime',monospace;
+}
+
+header{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    padding-bottom:18px;
+    border-bottom:2px dashed var(--brass);
+    margin-bottom:22px;
+}
+
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.header-home{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.12);
+    color:var(--paper-2);
+    text-decoration:none;
+    transition:background .15s ease, transform .15s ease;
+}
+
+.header-home:hover{
+    background:rgba(255,255,255,0.2);
+    transform:translateY(-1px);
+}
+
+.header-home svg{
+    width:20px;
+    height:20px;
+}
+
+.shop-title{
+    font-size:26px;
+    letter-spacing:1px;
+    color:var(--paper-2);
+}
+
+.shop-tagline{
+    font-size:12.5px;
+    color:var(--brass);
+    margin-top:2px;
+}
+
+.badge{
+    font-family:'Special Elite';
+    font-size:12px;
+    letter-spacing:.5px;
+    background:rgba(255,255,255,0.12);
+    padding:8px 14px;
+    border-radius:7px;
+}
+
+.toast{
+    position:fixed;
+    top:18px;
+    right:18px;
+    background:var(--mint);
+    color:#fff;
+    padding:12px 18px;
+    border-radius:8px;
+    font-family:'Special Elite';
+    font-size:13px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.3);
+    z-index:60;
+}
+
+.panel{
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:10px;
+    padding:18px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.25);
+}
+
+.empty-note{
+    font-size:14px;
+    color:#6b6458;
+    font-style:italic;
+    padding:14px 0;
+}
+
+.owner-tabs{
+    display:flex;
+    gap:6px;
+    margin-bottom:16px;
+}
+
+.owner-tabs button{
+    font-family:'Special Elite';
+    font-size:13px;
+    letter-spacing:.5px;
+    padding:9px 16px;
+    border-radius:7px 7px 0 0;
+    border:none;
+    background:rgba(255,255,255,0.12);
+    color:var(--paper-2);
+    cursor:pointer;
+}
+
+.owner-tabs button.active{
+    background:var(--paper);
+    color:var(--ink);
+}
+
+.ticket-stub{
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    align-items:flex-start;
+    border:1px solid #E4DCC8;
+    border-radius:8px;
+    padding:14px;
+    margin-bottom:12px;
+}
+
+.stub-left{
+    flex:1;
+}
+
+.stub-customer{
+    font-weight:600;
+    font-size:15px;
+    color:var(--ink);
+}
+
+.stub-meta{
+    font-size:11.5px;
+    color:#8a8273;
+    margin-bottom:8px;
+}
+
+.stub-items{
+    font-size:13px;
+    color:var(--ink);
+    line-height:1.5;
+}
+
+.stub-items .row{
+    display:flex;
+    justify-content:space-between;
+    font-family:'Courier Prime',monospace;
+    font-size:12.5px;
+}
+
+.stub-total{
+    margin-top:6px;
+    font-weight:700;
+    font-family:'Courier Prime',monospace;
+    color:var(--ink);
+}
+
+.stub-right{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:8px;
+    min-width:150px;
+}
+
+.stub-actions{
+    display:flex;
+    gap:6px;
+}
+
+.btn-outline{
+    border:1px solid var(--ink);
+    background:transparent;
+    color:var(--ink);
+    font-size:12px;
+    padding:7px 10px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.btn-fill{
+    border:none;
+    background:var(--mint);
+    color:#fff;
+    font-size:12px;
+    padding:7px 10px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.btn-outline:hover{
+    background:var(--ink);
+    color:#fff;
+}
+
+.stamp{
+    display:inline-block;
+    font-family:'Special Elite',monospace;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:11px;
+    padding:5px 10px;
+    border-radius:5px;
+    border:2.5px solid;
+    box-shadow:inset 0 0 0 1.5px currentColor;
+    transform:rotate(-6deg);
+    opacity:0.9;
+}
+
+table.ledger{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+}
+
+table.ledger th{
+    text-align:left;
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:#8a8273;
+    padding:6px 8px;
+    border-bottom:2px solid var(--ink);
+}
+
+table.ledger td{
+    padding:8px;
+    border-bottom:1px solid #ECE5D2;
+    color:var(--ink);
+}
+
+table.ledger input{
+    width:100%;
+    border:none;
+    background:transparent;
+    font-family:'Courier Prime',monospace;
+    font-size:13.5px;
+    color:var(--ink);
+    border-bottom:1px dashed #cfc4a4;
+    padding:2px 0;
+}
+
+.remove-x{
+    border:none;
+    background:transparent;
+    color:var(--stamp);
+    font-size:17px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.add-row{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr auto;
+    gap:8px;
+    margin-top:14px;
+}
+.add-row input{
+    padding:9px 10px;
+    border:1px solid #DDD3BB;
+    border-radius:6px;
+    font-family:'Inter';
+    font-size:13.5px;
+}
+
+.add-row button{
+    background:var(--mint);
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    font-family:'Special Elite';
+    font-size:12.5px;
+    cursor:pointer;
+}
+
+.note{
+    font-size:12.5px;
+    margin-top:10px;
+    padding:9px 10px;
+    border-radius:6px;
+}
+
+.note.error{
+    background:#FBE4E0;
+    color:#8C2C22;
+}
+
+  /* ---------- modal / receipt ---------- */
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:50;
+    padding:20px;
+}
+
+.modal-box{
+    background:var(--paper);
+    border-radius:8px;
+    padding:20px;
+    max-width:340px;
+    width:100%;
+    max-height:85vh;
+    overflow:auto;
+}
+
+#receipt-print-area{
+    font-family:'Courier Prime',monospace;
+    color:var(--ink);
+    font-size:13px;
+}
+
+.r-center{
+    text-align:center;
+}
+
+.r-divider{
+    border-top:1px dashed var(--ink);
+    margin:8px 0;
+}
+
+.r-row{
+    display:flex;
+    justify-content:space-between;
+}
+
+.r-total{
+    display:flex;
+    justify-content:space-between;
+    font-weight:700;
+    font-size:14px;
+    margin-top:4px;
+}
+
+.modal-actions{
+    display:flex;
+    gap:8px;
+    margin-top:16px;
+}
+
+.modal-actions button{
+    flex:1;
+    padding:10px;
+    border-radius:6px;
+    font-family:'Special Elite';
+    font-size:13px;
+    cursor:pointer;
+}
+
+.modal-actions .print-btn{
+    border:none;
+    background:var(--ink);
+    color:#fff;
+}
+
+.modal-actions .close-btn{
+    border:1px solid var(--ink);
+    background:transparent;
+    color:var(--ink);
+}
+
+@media print{
+    body *{
+        visibility:hidden;
+    }
+    #receipt-print-area, #receipt-print-area *{
+        visibility:visible;
+    }
+    #receipt-print-area{
+        position:absolute;
+        top:0;
+        left:0;
+        width:300px;
+    }
+}

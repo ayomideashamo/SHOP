@@ -1,0 +1,255 @@
+:root {
+    --counter:#1F2A24;
+    --counter-2:#243630;
+    --paper:#FBF8F1;
+    --paper-2:#F3EEE2;
+    --ink:#2B2A28;
+    --brass:#B79C6C;
+    --stamp:#C0463A;
+    --mint:#6FA287;
+}
+
+*{box-sizing:border-box;}
+
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:'Inter',sans-serif;
+    color:var(--paper-2);
+    background: radial-gradient(circle at 20% 10%, var(--counter-2), var(--counter) 55%);
+}
+
+body, input, button {
+    font:inherit;
+}
+
+.signin-shell{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    min-height:100vh;
+}
+
+.canvas-panel{
+    padding:48px 40px;
+    background:linear-gradient(180deg, rgba(43,42,40,.96) 0%, rgba(31,42,36,.98) 100%);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:28px;
+}
+
+.brand-mark{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:max-content;
+    padding:12px 18px;
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:999px;
+    font-family:'Special Elite',monospace;
+    letter-spacing:1px;
+    font-size:14px;
+    box-shadow:0 12px 25px rgba(0,0,0,.2);
+}
+
+.canvas-panel h1{
+    margin:0;
+    font-size:42px;
+    line-height:1.05;
+    max-width:520px;
+    color:var(--paper);
+}
+
+.canvas-panel p{
+    margin:0;
+    max-width:520px;
+    line-height:1.7;
+    color:rgba(243,238,226,0.86);
+}
+
+.orientation-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.orientation-card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+    padding:20px;
+    min-height:120px;
+}
+
+.orientation-card span{
+    display:block;
+    font-weight:700;
+    margin-bottom:8px;
+    color:var(--paper);
+}
+
+.orientation-card p{
+    margin:0;
+    color:rgba(243,238,226,.8);
+    font-size:14px;
+    line-height:1.7;
+}
+
+.form-panel{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 30px;
+    background:var(--paper);
+}
+
+.form-card{
+    width:100%;
+    max-width:420px;
+    background:var(--paper);
+    border-radius:24px;
+    box-shadow:0 24px 45px rgba(19,18,17,.14);
+    padding:32px;
+    color:var(--ink);
+}
+
+.form-head{
+    margin-bottom:24px;
+}
+
+.form-eyebrow{
+    font-size:12px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin-bottom:10px;
+}
+
+.form-card h2{
+    margin:0 0 10px;
+    font-size:28px;
+    line-height:1.05;
+}
+
+.form-card p{
+    margin:0;
+    color:#5b5347;
+    line-height:1.7;
+}
+
+.role-picker{
+    display:flex;
+    gap:12px;
+    margin-bottom:22px;
+}
+
+.role-card{
+    flex:1;
+    border:1px solid rgba(43,42,40,.15);
+    background:rgba(43,42,40,.03);
+    color:var(--ink);
+    border-radius:14px;
+    padding:18px 16px;
+    cursor:pointer;
+    transition:background .2s, border-color .2s, transform .2s;
+}
+
+.role-card.active{
+    background:var(--paper);
+    border-color:var(--brass);
+    transform:translateY(-1px);
+}
+
+.role-card:hover{
+    border-color:var(--brass);
+}
+
+.role-card::after{
+    content:attr(data-role);
+    display:block;
+    margin-top:10px;
+    font-size:13px;
+    color:#7e776a;
+}
+
+label{
+    display:block;
+    margin-bottom:16px;
+    color:#4c473d;
+}
+
+input{
+    width:100%;
+    margin-top:8px;
+    padding:12px 14px;
+    border-radius:12px;
+    border:1px solid #d8d0c2;
+    background:#fff;
+    color:var(--ink);
+}
+
+input:focus{
+    outline:none;
+    border-color:var(--brass);
+    box-shadow:0 0 0 4px rgba(183,156,108,.12);
+}
+
+.form-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    align-items:center;
+    margin-top:4px;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+}
+
+.primary-btn{
+    flex:1 1 auto;
+    min-width:150px;
+    padding:14px 18px;
+    border-radius:12px;
+    background:var(--counter);
+    color:var(--paper);
+    font-weight:700;
+}
+
+.secondary-btn{
+    flex:1 1 auto;
+    min-width:150px;
+    padding:14px 18px;
+    border-radius:12px;
+    background:transparent;
+    border:1px solid var(--ink);
+    color:var(--ink);
+}
+
+.note{
+    margin-top:18px;
+    color:#5b5347;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.footer-links{
+    margin-top:26px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.footer-links a{
+    color:var(--counter);
+    text-decoration:none;
+    font-weight:600;
+}
+
+@media (max-width:900px){
+    .signin-shell{grid-template-columns:1fr;}
+    .canvas-panel, .form-panel{padding:28px;}
+    .orientation-grid{grid-template-columns:1fr;}
+}

@@ -1,0 +1,107 @@
+:root{
+   --paper:#FBF8F1;
+  --paper-2:#F3EEE2;
+  --ink:#2B2A28;
+  --accent-2:#B79C6C;
+  --accent:#1F2A24;
+  --surface:#ffffff;
+  --border:#e7dbc3;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+  background:linear-gradient(135deg, var(--paper-2) 0%, var(--paper) 100%);
+}
+body, input, select, textarea, button, a{font:inherit;}
+.owner-home-shell{
+  display:grid;
+  gap:24px;
+  max-width:880px;
+  margin:0 auto;
+  padding:32px 20px 40px;
+}
+.owner-home-card,
+.owner-home-summary{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:28px;
+  box-shadow:0 14px 30px rgba(0,0,0,0.08);
+}
+.brand-mark{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:max-content;
+  padding:12px 18px;
+  background:var(--paper);
+  color:var(--ink);
+  border-radius:999px;
+  border:1px solid black;
+  font-family:'Special Elite',monospace;
+  letter-spacing:1px;
+  margin-bottom: 3px;
+}
+h1{
+  margin:0 0 14px;
+  font-size:2.2rem;
+  line-height:1.05;
+}
+p{
+  margin:0 0 24px;
+  font-size:1rem;
+  line-height:1.7;
+  color:#554f45;
+}
+.owner-home-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.primary-btn,
+.secondary-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:158px;
+  border-radius:999px;
+  font-weight:600;
+  text-decoration:none;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.primary-btn{
+  background:var(--accent);
+  color:#fff;
+  padding:12px 22px;
+}
+.secondary-btn{
+  background:#e5f5e7;
+  color:var(--ink);
+  padding:12px 20px;
+  border:1px solid var(--border);
+}
+.primary-btn:hover,
+.secondary-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 12px 20px rgba(0,0,0,0.08);
+}
+.owner-home-summary h2{
+  margin:0 0 16px;
+  font-size:1.15rem;
+}
+.owner-home-summary ul{
+  margin:0;
+  padding-left:20px;
+  color:#5a5447;
+}
+.owner-home-summary li{
+  margin-bottom:10px;
+}
+@media (max-width:640px){
+  .owner-home-card,
+  .owner-home-summary{padding:22px;}
+  .owner-home-actions{flex-direction:column;}
+}

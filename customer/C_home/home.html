@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home — The Counter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="home.css">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="home-shell">
+  <aside class="home-sidebar">
+    <div class="brand-mark">The Counter</div>
+    <h1>Welcome home</h1>
+    <p>Manage your profile, add new shops, review your orders, and leave feedback from one place.</p>
+    <div class="quick-actions">
+      <a href="/choose_owner/choose-owner.html" class="action-pill">Start shopping</a>
+      <a href="#orders" class="action-pill">View orders</a>
+      <a href="#comments" class="action-pill">Contact support</a>
+    </div>
+    <div class="sidebar-actions">
+      <a href="/choose_owner/choose-owner.html" class="secondary-btn">Back</a>
+      <a href="/sign_in/signin.html" class="secondary-btn">Sign out</a>
+    </div>
+  </aside>
+
+  <main class="home-main">
+    <section class="stats-grid">
+      <div class="stat-card">
+        <p class="eyebrow">Orders</p>
+        <h3 id="stats-orders">0</h3>
+        <span>Total orders</span>
+      </div>
+      <div class="stat-card">
+        <p class="eyebrow">Pending</p>
+        <h3 id="stats-pending">0</h3>
+        <span>Active deliveries</span>
+      </div>
+      <div class="stat-card">
+        <p class="eyebrow">Shops</p>
+        <h3 id="stats-shops">0</h3>
+        <span>Saved shops</span>
+      </div>
+      <div class="stat-card">
+        <p class="eyebrow">Feedback</p>
+        <h3 id="stats-comments">0</h3>
+        <span>Comments posted</span>
+      </div>
+    </section>
+
+    <section class="card profile-card">
+      <div class="card-head">
+        <div>
+          <p class="eyebrow">Profile</p>
+          <h2>Edit your profile</h2>
+        </div>
+        <div id="profile-status" class="status-pill">Ready to update</div>
+      </div>
+      <form id="profile-form" class="profile-grid">
+        <div class="stacked-form">
+          <label>
+            <span>Name</span>
+            <input type="text" id="profile-name" required>
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" id="profile-email" required>
+          </label>
+          <label>
+            <span>Phone</span>
+            <input type="tel" id="profile-phone" placeholder="e.g. 0803 000 0000">
+          </label>
+          <label>
+            <span>Home address</span>
+            <input type="text" id="profile-address" placeholder="Your delivery location">
+          </label>
+          <label>
+            <span>Preferred payment</span>
+            <select id="profile-payment">
+              <option value="Cash on delivery">Cash on collection</option>
+              <option value="Bank transfer">Bank transfer</option>
+            </select>
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" id="profile-password" placeholder="Update password">
+          </label>
+          <button type="submit" class="primary-btn">Save profile</button>
+        </div>
+        <div class="side-stack">
+          <label>
+            <span>Profile photo</span>
+            <input type="file" id="profile-photo" accept="image/*">
+          </label>
+          <div class="avatar-preview">
+            <img id="profile-photo-preview" alt="Profile preview">
+          </div>
+          <p class="helper-text">Add a photo and keep your delivery and payment details handy for quicker checkouts.</p>
+        </div>
+      </form>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="card">
+        <div class="card-head">
+          <div>
+            <p class="eyebrow">Shops</p>
+            <h3>Add a new shop</h3>
+          </div>
+        </div>
+        <form id="shop-form" class="stacked-form">
+          <label>
+            <span>Shop name</span>
+            <input type="text" id="shop-name" required>
+          </label>
+          <label>
+            <span>Short description</span>
+            <textarea id="shop-description" rows="3" required></textarea>
+          </label>
+          <button type="submit" class="primary-btn">Add shop</button>
+        </form>
+        <div id="shop-list" class="item-list"></div>
+      </article>
+
+      <article class="card" id="orders">
+        <div class="card-head">
+          <div>
+            <p class="eyebrow">Orders</p>
+            <h3>Your order history</h3>
+          </div>
+        </div>
+        <div id="order-history" class="item-list"></div>
+      </article>
+
+      <article class="card" id="comments">
+        <div class="card-head">
+          <div>
+            <p class="eyebrow">Feedback</p>
+            <h3>Comment portal</h3>
+          </div>
+        </div>
+        <form id="comment-form" class="stacked-form">
+          <label>
+            <span>Your comment</span>
+            <textarea id="comment-text" rows="4" required placeholder="Share feedback, requests, or a quick note..."></textarea>
+          </label>
+          <button type="submit" class="primary-btn">Post comment</button>
+        </form>
+        <ul id="comment-list" class="comment-list"></ul>
+      </article>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <p class="eyebrow">Activity</p>
+          <h3>Recent activity</h3>
+        </div>
+      </div>
+      <ul id="activity-list" class="activity-list"></ul>
+    </section>
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/supabase.js"></script>
+<script src="/storage.js"></script>
+<script src="home.js"></script>
+</body>
+</html>

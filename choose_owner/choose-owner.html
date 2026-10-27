@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choose a shop owner — The Counter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="choose-owner.css">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="owner-shell">
+    <section class="owner-card-panel">
+        <div class="brand-mark">The Counter</div>
+        <h1>Choose your shop owner</h1>
+        <p>Pick the merchant whose shelf and orders you want to shop from today. After selecting, you’ll move straight into the customer counter for that owner.</p>
+    </section>
+    <section class="owner-select-panel">
+        <div class="owner-select-card">
+            <div class="owner-head">
+                <div class="owner-eyebrow">Owner selection</div>
+                <h2>Select a shop owner</h2>
+                <p id="owner-welcome">Ready to shop? Pick one of the shop owners below to continue.</p>   </div>
+            <div id="owner-list" class="owner-list"></div>
+            <div class="owner-actions">
+                <button id="continue-btn" class="primary-btn" disabled>Continue to shop</button>
+                <a href="/customer/C_home/home.html" class="secondary-btn">Home</a>
+                <a href="../sign_in/signin.html" class="secondary-btn">Back to sign in</a>
+            </div>
+        </div>
+    </section>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../supabase.js"></script>
+<script src="../storage.js"></script>
+<script src="../choose_owner/choose-owner.js"></script>
+</body>
+</html>
